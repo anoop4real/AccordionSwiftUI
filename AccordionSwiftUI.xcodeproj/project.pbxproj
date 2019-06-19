@@ -16,6 +16,7 @@
 		765668F922B6E6EC0093BDC1 /* DataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765668F822B6E6EC0093BDC1 /* DataRow.swift */; };
 		765668FC22B6E7C40093BDC1 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765668FB22B6E7C40093BDC1 /* DataStore.swift */; };
 		765668FF22B6EA440093BDC1 /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765668FE22B6EA440093BDC1 /* DataList.swift */; };
+		7656690122BAA2580093BDC1 /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656690022BAA2580093BDC1 /* ProductDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		765668F822B6E6EC0093BDC1 /* DataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRow.swift; sourceTree = "<group>"; };
 		765668FB22B6E7C40093BDC1 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		765668FE22B6EA440093BDC1 /* DataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
+		7656690022BAA2580093BDC1 /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				765668F722B6E6D10093BDC1 /* Rows */,
 				765668F422B6E6290093BDC1 /* Model */,
 				765668DC22B6621E0093BDC1 /* AppDelegate.swift */,
+				7656690022BAA2580093BDC1 /* ProductDetail.swift */,
 				765668FE22B6EA440093BDC1 /* DataList.swift */,
 				765668DE22B6621E0093BDC1 /* SceneDelegate.swift */,
 				765668E222B662210093BDC1 /* Assets.xcassets */,
@@ -182,6 +185,7 @@
 				765668DD22B6621E0093BDC1 /* AppDelegate.swift in Sources */,
 				765668FC22B6E7C40093BDC1 /* DataStore.swift in Sources */,
 				765668FF22B6EA440093BDC1 /* DataList.swift in Sources */,
+				7656690122BAA2580093BDC1 /* ProductDetail.swift in Sources */,
 				765668DF22B6621E0093BDC1 /* SceneDelegate.swift in Sources */,
 				765668F922B6E6EC0093BDC1 /* DataRow.swift in Sources */,
 				765668F622B6E66A0093BDC1 /* AMPGenericObject.swift in Sources */,
