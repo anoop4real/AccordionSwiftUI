@@ -13,16 +13,33 @@ struct DataRow : View {
     
     var body: some View {
         
-        HStack {
-            Text(myData.name ?? "Anonymous")
-            Spacer()
-            if myData.isExpanded{
-                Image(systemName: "chevron.down")
-            }else if myData.canBeExpanded{
-                Image(systemName: "chevron.right")
-            }
+        if (myData.canBeExpanded){
+            return HStack {
+                Text(myData.name ?? "Anonymous")
+                Spacer()
+                //PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
+                if myData.isExpanded{
+                    Image(systemName: "chevron.down")
+                }else if myData.canBeExpanded{
+                    Image(systemName: "chevron.right")
+                }
+                }
+                .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
+        }else{
+            return HStack {
+                Text(myData.name ?? "Anonymous")
+                Spacer()
+                //PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
+                if myData.isExpanded{
+                    Image(systemName: "chevron.down")
+                }else if myData.canBeExpanded{
+                    Image(systemName: "chevron.right")
+                }
+                }
+                .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
         }
-        .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
+        
+
     }
 }
 

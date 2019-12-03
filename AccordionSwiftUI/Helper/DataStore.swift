@@ -10,13 +10,14 @@ import Foundation
 import SwiftUI
 import Combine
 
-class DataStore: BindableObject {
+class DataStore: ObservableObject {
+    let objectWillChange = ObservableObjectPublisher()
     var dataRows = [AMPGenericObject](){
-        didSet{
-            didChange.send(())
+        willSet{
+            objectWillChange.send()
         }
     }
-    var didChange = PassthroughSubject<Void, Never>()
+    //var didChange = PassthroughSubject<Void, Never>()
     private init(){
         createTestData()
     }

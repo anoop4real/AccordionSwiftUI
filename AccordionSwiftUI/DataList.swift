@@ -9,20 +9,18 @@
 import SwiftUI
 
 struct DataList : View {
-    @ObjectBinding var dataStore = DataStore.shared()
-    var body: some View {
-        
+    @ObservedObject var dataStore = DataStore.shared()
+    var body: some View {        
         NavigationView {
-            List(dataStore.dataRows.identified(by: \.id)) { data in
+            List(dataStore.dataRows, id: \.id) { data in
                 DataRow(myData: data)
-                    .tapAction {
+                    .onTapGesture {
                         if data.isExpanded{
                             self.dataStore.collapseCellsFromIndexOf(data)
                         }else{
                             self.dataStore.fetchChildrenforParentAndExpand(data)
                         }
                 }
-                
                 }
                 .navigationBarTitle(Text("Items"))
         }
