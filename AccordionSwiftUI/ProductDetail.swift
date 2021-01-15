@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct ProductDetail : View {
-    var product:AMPGenericObject
+struct ProductDetail: View {
+    var product: AMPGenericObject
     var body: some View {
         Text(product.name!)
     }
 }
 
 #if DEBUG
-struct ProductDetail_Previews : PreviewProvider {
+struct ProductDetail_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetail(product: DataStore.shared().dataRows[0])
     }

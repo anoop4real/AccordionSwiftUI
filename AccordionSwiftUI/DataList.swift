@@ -8,27 +8,35 @@
 
 import SwiftUI
 
-struct DataList : View {
+struct DataList: View {
     @ObservedObject var dataStore = DataStore.shared()
-    var body: some View {        
+    @State private var selectedItemId: String? = nil
+    var body: some View {
         NavigationView {
             List(dataStore.dataRows, id: \.id) { data in
                 DataRow(myData: data)
                     .onTapGesture {
-                        if data.isExpanded{
+                        if !data.canBeExpanded {
+                            selectedItemId = data.id
+                        }
+                        if data.isExpanded {
                             self.dataStore.collapseCellsFromIndexOf(data)
-                        }else{
+                        } else {
                             self.dataStore.fetchChildrenforParentAndExpand(data)
                         }
-                }
-                }
-                .navigationBarTitle(Text("Items"))
+                    }
+                    .background(NavigationLink(destination: Text(data.name ?? "Anonymous"), tag: data.id, selection: $selectedItemId, label: {
+                        EmptyView()
+                    })
+                    )
+            }
+            .navigationBarTitle(Text("Items"))
         }
     }
 }
 
 #if DEBUG
-struct DataList_Previews : PreviewProvider {
+struct DataList_Previews: PreviewProvider {
     static var previews: some View {
         DataList()
     }

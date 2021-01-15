@@ -8,45 +8,42 @@
 
 import SwiftUI
 
-struct DataRow : View {
+struct DataRow: View {
     var myData: AMPGenericObject
-    
-    var body: some View {
-        
-        if (myData.canBeExpanded){
-            return HStack {
-                Text(myData.name ?? "Anonymous")
-                Spacer()
-                //PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
-                if myData.isExpanded{
-                    Image(systemName: "chevron.down")
-                }else if myData.canBeExpanded{
-                    Image(systemName: "chevron.right")
-                }
-                }
-                .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
-        }else{
-            return HStack {
-                Text(myData.name ?? "Anonymous")
-                Spacer()
-                //PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
-                if myData.isExpanded{
-                    Image(systemName: "chevron.down")
-                }else if myData.canBeExpanded{
-                    Image(systemName: "chevron.right")
-                }
-                }
-                .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
-        }
-        
 
+    var body: some View {
+        if myData.canBeExpanded {
+            return HStack {
+                Text(myData.name ?? "Anonymous")
+                Spacer()
+                // PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
+                if myData.isExpanded {
+                    Image(systemName: "chevron.down")
+                } else if myData.canBeExpanded {
+                    Image(systemName: "chevron.right")
+                }
+            }
+            .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
+        } else {
+            return HStack {
+                Text(myData.name ?? "Anonymous")
+                Spacer()
+                // PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
+                if myData.isExpanded {
+                    Image(systemName: "chevron.down")
+                } else if myData.canBeExpanded {
+                    Image(systemName: "chevron.right")
+                }
+            }
+            .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
+        }
     }
 }
 
 #if DEBUG
-struct DataRow_Previews : PreviewProvider {
+struct DataRow_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
+        Group {
             DataRow(myData: DataStore.shared().dataRows[0])
             DataRow(myData: DataStore.shared().dataRows[1])
         }
