@@ -19,6 +19,8 @@ struct DataList: View {
                         /// This means that there are no children so tap means open the details
                         if !data.canBeExpanded {
                             selectedItemId = data.id
+                        } else {
+                            selectedItemId = nil
                         }
                         if data.isExpanded {
                             self.dataStore.collapseCellsFromIndexOf(data)
@@ -28,7 +30,8 @@ struct DataList: View {
                     }
                     .background(NavigationLink(destination: Text(data.name ?? "Anonymous"), tag: data.id, selection: $selectedItemId, label: {
                         EmptyView()
-                    })
+                    }).disabled(true)
+                    .buttonStyle(PlainButtonStyle())
                     )
             }
             .navigationBarTitle(Text("Items"))
