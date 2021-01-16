@@ -16,6 +16,7 @@ struct DataList: View {
             List(dataStore.dataRows, id: \.id) { data in
                 DataRow(myData: data)
                     .onTapGesture {
+                        /// This means that there are no children so tap means open the details
                         if !data.canBeExpanded {
                             selectedItemId = data.id
                         }
