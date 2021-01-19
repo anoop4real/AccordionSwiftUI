@@ -2,7 +2,7 @@
 Accordion view using SwiftUI, this is an experiment.
 
 
-![AccordionSwiftUI](https://user-images.githubusercontent.com/6782228/59721248-255def80-9221-11e9-9c67-158d6869dd9d.gif)
+![Accordion](https://user-images.githubusercontent.com/6782228/105042502-9e0fd800-5a64-11eb-85db-45915d783f6b.gif)
 
 
 #### Other Implementations (not using SwiftUI)
