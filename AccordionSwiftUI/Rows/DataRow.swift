@@ -9,34 +9,22 @@
 import SwiftUI
 
 struct DataRow: View {
-    var myData: AMPGenericObject
+    @ObservedObject var myData: AMPGenericObject
 
     var body: some View {
-        if myData.canBeExpanded {
-            return HStack {
-                Text(myData.name ?? "Anonymous")
-                Spacer()
-                // PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
-                if myData.isExpanded {
-                    Image(systemName: "chevron.down")
-                } else if myData.canBeExpanded {
-                    Image(systemName: "chevron.right")
-                }
+        return HStack {
+            Text(myData.name ?? "Anonymous")
+            Spacer()
+            // PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
+            if myData.isExpanded {
+                Image(systemName: "chevron.down")
+            } else if myData.canBeExpanded {
+                Image(systemName: "chevron.right")
             }
-            .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
-        } else {
-            return HStack {
-                Text(myData.name ?? "Anonymous")
-                Spacer()
-                // PresentationButton(Text("Show Detail View"), destination: ProductDetail(product: myData))
-                if myData.isExpanded {
-                    Image(systemName: "chevron.down")
-                } else if myData.canBeExpanded {
-                    Image(systemName: "chevron.right")
-                }
-            }
-            .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
         }
+        .frame(height: 44)
+        .padding(.leading, CGFloat(CGFloat((myData.level ?? 1) * 15)))
+        .background(Color(UIColor.systemBackground))
     }
 }
 

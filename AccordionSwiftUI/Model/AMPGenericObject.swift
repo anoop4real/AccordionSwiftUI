@@ -9,12 +9,12 @@
 import Foundation
 import SwiftUI
 
-class AMPGenericObject: Identifiable {
+class AMPGenericObject: Identifiable, ObservableObject {
     var id: String = ""
     var name: String?
     var parentName: String?
     var canBeExpanded = false // Bool to determine whether the cell can be expanded
-    var isExpanded = false // Bool to determine whether the cell is expanded
+    @Published var isExpanded = false // Bool to determine whether the cell is expanded
     var level: Int? // Indendation level of tabelview
     var type: Int?
     var children: [AMPGenericObject] = []

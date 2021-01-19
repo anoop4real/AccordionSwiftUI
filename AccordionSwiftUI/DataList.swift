@@ -13,7 +13,7 @@ struct DataList: View {
     @State private var selectedItemId: String? = nil
     var body: some View {
         NavigationView {
-            List(dataStore.dataRows, id: \.id) { data in
+            List(dataStore.dataRows) { data in
                 DataRow(myData: data)
                     .onTapGesture {
                         /// This means that there are no children so tap means open the details
@@ -31,9 +31,10 @@ struct DataList: View {
                     .background(NavigationLink(destination: Text(data.name ?? "Anonymous"), tag: data.id, selection: $selectedItemId, label: {
                         EmptyView()
                     }).disabled(true)
-                    .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(PlainButtonStyle())
                     )
             }
+            .animation(.default)
             .navigationBarTitle(Text("Items"))
         }
     }

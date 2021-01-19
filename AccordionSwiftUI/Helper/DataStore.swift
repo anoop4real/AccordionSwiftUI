@@ -13,6 +13,8 @@ import SwiftUI
 class DataStore: ObservableObject {
     @Published var dataRows = [AMPGenericObject]()
 
+    private var numberOfCategories = 15
+    private var numberOfChildrens = 10
     // var didChange = PassthroughSubject<Void, Never>()
     private init() {
         createTestData()
@@ -24,7 +26,7 @@ class DataStore: ObservableObject {
     }
 
     private func createTestData() {
-        for i in 0..<15 {
+        for i in 0..<numberOfCategories {
             let object = AMPGenericObject()
             object.id = "Category \(i)"
             object.name = "Category \(i)"
@@ -90,7 +92,7 @@ class DataStore: ObservableObject {
             // The children property of the parent will be filled with this objects
             // If the parent is of type Category, then fetch the Product.
             if parentObject.type == 0 {
-                for i in 0..<10 {
+                for i in 0..<numberOfChildrens {
                     let object = AMPGenericObject()
                     object.id = parentObject.id + "Product \(i)"
                     object.name = "Product \(i)"
@@ -113,7 +115,7 @@ class DataStore: ObservableObject {
             }
             // If tapping on Product, fetch the SubProducts
             else {
-                for i in 0..<10 {
+                for i in 0..<numberOfChildrens {
                     let object = AMPGenericObject()
                     object.id = parentObject.id + "SubProduct \(i)"
                     object.name = "SubProduct \(i)"
